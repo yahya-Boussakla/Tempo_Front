@@ -80,8 +80,11 @@ export class AuthService {
     this.router.navigate(["/login"])
   }
 
-  getProfile(): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/user`)
+  // getProfile(): Observable<User> {
+  //   return this.http.get<User>(`${this.apiUrl}/user`)
+  // }
+  getProfile(): Observable<User | null> {
+    return this.currentUser$
   }
 
   updateProfile(userData: Partial<User>): Observable<User> {
